@@ -1,0 +1,11 @@
+_thumbs
+media
+static
+settings.py
+*.pyc
+.DS_Store
+
+# emacs autosave and lock files
+\#*\#
+*~
+.\#*
