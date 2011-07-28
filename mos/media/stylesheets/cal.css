@@ -1,0 +1,60 @@
+/* styling */
+
+#calendar-content {
+        width:100%;
+	float: left;
+	margin-bottom: 0.5em;
+}
+
+#calendar-content ul {
+	float: left;
+	border: 1px solid gray;
+}
+
+#calendar-content li {
+	float: left;
+	display: block;
+	width: 100%;
+}
+
+#calendar-content div {
+	padding: 1px 0 0 1px;
+}
+
+#calendar-content li p {
+	margin: 0;
+	padding: 0.5em 1em;
+}
+#calendar-content li .event {
+	background: #75A3A3;	
+}
+
+#calendar-content li .past_event {
+	background: #F2F2F2;
+}
+
+#calendar-content .event_date, p.event .event_date {
+	font-weight: bold;
+	padding-right: 5px;
+	margin-right: 5px;
+}
+
+/* action */
+.invisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.event .hoverHidden {
+    opacity: 0;
+}
+.event:hover .hoverHidden {
+    opacity: 0.6;
+}
+
+.event:hover .hoverHidden:hover {
+    opacity: 1;
+}

@@ -1,0 +1,7 @@
+
+the source is available at mos/ !
+
+used libraries:
+* http://feedparser.org/
+* dateutil
+* pil - python imaging library: http://www.pythonware.com/products/pil/
