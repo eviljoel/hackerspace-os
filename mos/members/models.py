@@ -187,8 +187,6 @@ class Payment(models.Model):
     original_file = models.CharField(max_length=200, null=True)
     original_lineno = models.IntegerField(blank=True, null=True)
 
-    objects = PaymentManager()
-
     def __unicode__(self):
         return u"%s" % self.user.username
 
