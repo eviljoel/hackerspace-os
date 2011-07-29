@@ -3,8 +3,6 @@ import os
 import sys
 _DIRNAME = os.path.dirname(globals()["__file__"])
 
-sys.path.append(os.path.join(_DIRNAME, '..'))
-
 # Make this unique, and don't share it with anybody.
 #SECRET_KEY = 'hackerspaceos-thisinotsecret.'
 
@@ -21,13 +19,13 @@ sys.path.append(os.path.join(_DIRNAME, 'support'))
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'mysql' # 'postgresql_psycopg2', 'postgresql', 'mysql',
-                          # 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'hos'
-DATABASE_USER = 'hos_db_user'
-DATABASE_PASSWORD = 'hos_db_user_pw'
-DATABASE_HOST = ''       #Set to empty string for localhost.
-DATABASE_PORT = ''       # Set to empty string for default.
+DATABASES = {
+        'default': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': 'hos.db',
+                   },
+}
+
 
 # Local timezone
 TIME_ZONE = 'Europe/Vienna'
