@@ -1,7 +1,6 @@
 _thumbs
-media
 static
-settings.py
+settings_local.py
 *.pyc
 .DS_Store
 
