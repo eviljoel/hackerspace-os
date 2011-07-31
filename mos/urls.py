@@ -3,7 +3,6 @@ import settings
 from django.conf.urls.defaults import *
 from django.contrib import admin
 
-from mos.admin import calendar_admin, project_admin, member_admin
 from mos.cal.feeds import EventFeed
 
 
@@ -27,11 +26,8 @@ urlpatterns = patterns('',
     (r'^site_media/(?P<path>.*)$',
      'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
 
-    (r'^admin/calendar/(.*)', calendar_admin.root),
-    (r'^admin/projects/(.*)', project_admin.root),
-    (r'^admin/members/(.*)', member_admin.root),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/(.*)', admin.site.root),
+    (r'^admin/', include(admin.site.urls)),
 
     (r'^member/', include('mos.members.urls')),
 
