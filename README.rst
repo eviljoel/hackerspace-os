@@ -20,17 +20,22 @@ Install
 
 #. Checkout hackerspace-os
     
-   ``git clone git@github.com:fhahn/hackerspace-os.git
+   ``git clone git@github.com:fhahn/hackerspace-os.git``
 
 #. Install Requirements
 
    ``pip install -r hackerspace-os/requirements.txt``
 
+
 Setup
 =====
 
-#. settings
+#. Add your local settings (database,...)
 
-   ``cd hackerspace-os/mos/``
+   ``create hackerspace-os/hos/settings_local.py``
+
+#. Sync database
+
+   ``cd hackerspace-os/hos/``
    
    ``python manage.py syncdb``
