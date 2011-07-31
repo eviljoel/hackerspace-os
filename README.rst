@@ -15,3 +15,22 @@ TODO
 
 
 
+Install
+=======
+
+#. Checkout hackerspace-os
+    
+   ``git clone git@github.com:fhahn/hackerspace-os.git
+
+#. Install Requirements
+
+   ``pip install -r hackerspace-os/requirements.txt``
+
+Setup
+=====
+
+#. settings
+
+   ``cd hackerspace-os/mos/``
+   
+   ``python manage.py syncdb``
