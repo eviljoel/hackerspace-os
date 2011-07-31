@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% load adminmedia %}{% admin_media_prefix %}css/base.css{% endblock %}" />    
     {% if custom_style %}
-	<link href="/site_media/stylesheets/{{custom_style}}_admin.css" media="screen" rel="Stylesheet" type="text/css" />
+	<link href="{{ STATIC_URL }}stylesheets/{{custom_style}}_admin.css" media="screen" rel="Stylesheet" type="text/css" />
     {% endif %}
 {% endblock add_css %}
 

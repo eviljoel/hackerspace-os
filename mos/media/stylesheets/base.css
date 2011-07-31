@@ -9,7 +9,7 @@
 */
 
 /* Import other styles */
-@import url('/site_media/stylesheets/reset.css');
-@import url('/site_media/stylesheets/global.css');
-@import url('/site_media/stylesheets/layout.css');
+@import url('/static/stylesheets/reset.css');
+@import url('/static/stylesheets/global.css');
+@import url('/static/stylesheets/layout.css');
 
