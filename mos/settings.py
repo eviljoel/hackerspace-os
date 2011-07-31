@@ -138,3 +138,8 @@ HOS_OPENLAB = True
 HOS_INTRODUCTION = True
 HOS_PROJECTS = True
 HOS_RECENT_CHANGES = True
+
+try:
+    from settings_local import *
+except ImportError:
+    pass
