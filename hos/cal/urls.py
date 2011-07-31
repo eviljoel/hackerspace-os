@@ -1,0 +1,62 @@
+from django.conf.urls.defaults import *
+
+from hos.cal.models import Event, Location, Category
+
+
+date_dict = {
+    'queryset': Event.all.all(),
+    'date_field': 'startDate',
+    'allow_future': True,
+    'allow_empty': True,
+    'num_latest': 100,
+    'template_object_name': 'latestevents',
+}
+
+info_dict = {
+    'queryset': Event.all.all(),
+    'template_object_name': 'event',
+}
+
+info_dict_locations = {
+    'queryset': Location.objects.all(),
+ #   'template_object_name': 'locations',
+    'template_name': 'cal/event_special_list.html',
+    'extra_context': {'events_by': ' Locations'}
+}
+
+info_dict_categories = {
+    'queryset': Category.objects.all(),
+ #   'template_object_name': 'locations',
+    'template_name': 'cal/event_special_list.html',
+    'extra_context': {'events_by': ' Categories'}
+}
+
+
+urlpatterns = patterns('django.views.generic.date_based',
+  (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$',
+   'object_detail', date_dict),
+  (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$',
+   'archive_day', date_dict),
+  (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$',
+   'archive_month', date_dict),
+  (r'^(?P<year>\d{4})/$',
+   'archive_year', date_dict),
+  (r'^$',
+   'archive_index', date_dict),
+)
+
+urlpatterns += patterns('',
+    (r'^special/(?P<typ>\w+)/(?P<name>\w+)/$',
+     'hos.cal.views.display_special_events'),
+    (r'^(?P<object_id>\d+)/$',
+     'django.views.generic.list_detail.object_detail', info_dict),
+    (r'^(?P<object_id>\d+)/update/$',
+     'hos.cal.views.update_event', {'new': False}),
+    (r'^(?P<object_id>\d+)/delete/', 'hos.cal.views.delete_event'),
+    (r'^new/$', 'hos.cal.views.update_event', {'new': True}),
+    (r'^locations/$',
+     'django.views.generic.list_detail.object_list', info_dict_locations),
+    (r'^categories/$',
+     'django.views.generic.list_detail.object_list', info_dict_categories),
+    (r'^ajax/list/(?P<number>\d*)/?$', 'hos.cal.views.list'),
+)
