@@ -2,6 +2,7 @@ import settings
 
 from django.conf.urls.defaults import *
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from mos.cal.feeds import EventFeed
 
@@ -23,9 +24,6 @@ urlpatterns = patterns('',
 
     (r'^$', 'mos.web.views.display_main_page'),
 
-    (r'^site_media/(?P<path>.*)$',
-     'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', include(admin.site.urls)),
 
@@ -38,3 +36,5 @@ urlpatterns = patterns('',
 
     (r'^cellardoor/', 'mos.web.views.display_cellardoor'),
 )
+
+urlpatterns += staticfiles_urlpatterns()
